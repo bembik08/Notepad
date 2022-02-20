@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.textfield.TextInputEditText;
 import java.util.Calendar;
@@ -23,7 +24,7 @@ import ru.geekbrains.notepad.data.Note;
  * Use the {@link UpdateFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class UpdateFragment extends Fragment {
+public class UpdateFragment extends DialogFragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -105,12 +106,7 @@ public class UpdateFragment extends Fragment {
         nameTextInput = view.findViewById(R.id.updateInputNameNote);
         descriptionTextInput = view.findViewById(R.id.updateInputDescriptionNote);
         Button updateBtn = view.findViewById(R.id.updateBtn);
-        updateBtn.setOnClickListener(view1 -> {
-            MainActivity activity = (MainActivity) getActivity();
-            navigation = activity.getNavigation();
-            navigation.addFragment(ContentNotesFragment.newInstance(new Note(nameTextInput.getText().toString(), descriptionTextInput.getText().toString(), 0, getDateFromDatePicker()),0), true);
-        });
-
+        updateBtn.setOnClickListener(view1 -> requireActivity().onBackPressed());
     }
 
     private void setNoteView() {

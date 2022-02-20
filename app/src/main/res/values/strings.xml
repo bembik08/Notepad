@@ -17,7 +17,7 @@
     <string name="settings_drawer_item">Settings</string>
     <string name="main_drawer_item">Main</string>
     <string name="about_drawer_item">About</string>
-    <string name="drawer_navigation_nav_header">Hi, My name is...</string>
+    <string name="drawer_navigation_nav_header">Hi, My name is…</string>
     <string name="open_nav_drawer">Open Navigation ToolBar</string>
     <string name="close_navigation_toolbar">Close Navigation ToolBar</string>
     <string name="nav_header_about_profile_text">Something About Me</string>
@@ -29,4 +29,7 @@
     <string name="update_context">UPDATE</string>
     <string name="continue_">continue</string>
     <string name="sign_out">Sign Out</string>
+    <string name="deleteTxtBtn">Delete</string>
+    <string name="titleDeleteDialog">Удалить запись</string>
+    <string name="msgDeleteDialog">Вы действительно хотите удалить?</string>
 </resources>
