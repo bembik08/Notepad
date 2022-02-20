@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.UpdateFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <DatePicker
+            android:id="@+id/dateUpdateNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:calendarViewShown="false"
+            android:spinnersShown="false"
+            android:datePickerMode="spinner"
+            android:layout_marginTop="@dimen/updateMarginTop"
+            android:textSize="@dimen/textSize"
+            android:hint="@string/dateUpdateFgmntText"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateInputNameNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/updateMarginTop"
+            android:textSize="@dimen/textSize"
+            android:hint="@string/input_note_name_text"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateInputDescriptionNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/updateMarginTop"
+            android:hint="@string/input_desscription"
+            android:textSize="@dimen/textSize" />
+        <Button
+            android:id="@+id/updateBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/updateMarginTop"
+            android:text="@string/updateBtnText"
+            android:textSize="@dimen/textSize" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

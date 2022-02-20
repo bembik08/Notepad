@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="noteName">
+        <item>Дело 1</item>
+        <item>Дело 2</item>
+        <item>Дело 3</item>
+        <item>Дело 4</item>
+        <item>Дело 5</item>
+    </string-array>
+    <string-array name="dateCreated">
+        <item>22.11.21</item>
+        <item>20.10.21</item>
+        <item>22.11.21</item>
+        <item>19.12.21</item>
+        <item>22.12.21</item>
+    </string-array>
+    <string-array name="noteDescription">
+        <item>Описание Дело 1</item>
+        <item>Описание Дело 2</item>
+        <item>Описание Дело 3</item>
+        <item>Описание Дело 4</item>
+        <item>Описание Дело 5</item>
+    </string-array>
+    <integer name="com_vk_sdk_AppId">7833180</integer>
+</resources>

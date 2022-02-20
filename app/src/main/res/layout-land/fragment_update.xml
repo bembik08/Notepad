@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="30dp"
+    app:cardElevation="20dp"
+    tools:context=".ui.UpdateFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <DatePicker
+            android:id="@+id/dateUpdateNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/updateMarginTop"
+            android:calendarViewShown="false"
+            android:spinnersShown="true"
+            android:datePickerMode="spinner"
+            android:textSize="@dimen/textSize" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateInputNameNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/updateMarginTopLand"
+            android:textSize="@dimen/textSize" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateInputDescriptionNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/updateMarginTopLand"
+            android:textSize="@dimen/textSize" />
+        <Button
+            android:id="@+id/updateBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/updateMarginTopLand"
+            android:text="@string/updateBtnText"
+            android:textSize="@dimen/textSize" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
