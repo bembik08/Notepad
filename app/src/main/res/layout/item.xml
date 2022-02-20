@@ -26,6 +26,13 @@
             android:layout_height="match_parent"
             android:textAlignment="center"
             android:textSize="@dimen/textSize" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/deleteBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="@string/deleteTxtBtn"
+            android:layout_gravity="end"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

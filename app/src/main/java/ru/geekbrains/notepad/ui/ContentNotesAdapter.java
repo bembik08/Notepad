@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.android.material.button.MaterialButton;
 import ru.geekbrains.notepad.R;
 import ru.geekbrains.notepad.data.Note;
 import ru.geekbrains.notepad.data.NoteSource;
@@ -30,6 +31,7 @@ public class ContentNotesAdapter extends RecyclerView.Adapter<ContentNotesAdapte
         notifyDataSetChanged();
     }
 
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -42,11 +44,14 @@ public class ContentNotesAdapter extends RecyclerView.Adapter<ContentNotesAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.setData(noteSource.getNote(position));
         Log.d(TAG, "onBindViewHolder");
+
     }
+
 
     public void setItemClickListener(OnItemClickListener onItemClickListener) {
         this.itemClickListener = onItemClickListener;
     }
+
 
     public int getMenuPosition() {
         return menuPosition;
@@ -69,6 +74,12 @@ public class ContentNotesAdapter extends RecyclerView.Adapter<ContentNotesAdapte
             super(itemView);
             nameNote = itemView.findViewById(R.id.noteName);
             data = itemView.findViewById(R.id.noteDate);
+            MaterialButton button = itemView.findViewById(R.id.deleteBtn);
+            button.setOnClickListener(view -> {
+               if(itemClickListener != null){
+                   itemClickListener.onItemClick(view, getAdapterPosition(), R.id.deleteBtn);
+               }
+            });
             registerContextMenu(itemView);
             data.setOnLongClickListener(new View.OnLongClickListener() {
                 @RequiresApi(api = Build.VERSION_CODES.N)
@@ -99,6 +110,7 @@ public class ContentNotesAdapter extends RecyclerView.Adapter<ContentNotesAdapte
                 });
                 fragment.registerForContextMenu(itemView);
             }
+
         }
 
         public void setData(Note note) {

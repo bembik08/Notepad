@@ -3,29 +3,27 @@ package ru.geekbrains.notepad.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
+import ru.geekbrains.notepad.MainActivity;
+import ru.geekbrains.notepad.R;
+import ru.geekbrains.notepad.data.Navigation;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.vk.api.sdk.auth.VKAccessToken;
-
-import ru.geekbrains.notepad.MainActivity;
-import ru.geekbrains.notepad.R;
-import ru.geekbrains.notepad.data.Navigation;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,6 +41,7 @@ public class StartFragment extends Fragment {
     private GoogleSignInClient googleSignInClient;
 
     private SignInButton signInButton;
+    private MaterialButton vkSignInButton;
     private TextView emailView;
     private MaterialButton continue_;
     private MaterialButton signOutBtn;
@@ -105,14 +104,17 @@ public class StartFragment extends Fragment {
 
     private void initView(View view) {
         signInButton = view.findViewById(R.id.sign_in_button);
-        MaterialButton vkSignInButton = view.findViewById(R.id.vk_sign_in_btn);
-        vkSignInButton.setOnClickListener(view13 -> vkSignIn());
         signInButton.setOnClickListener(view1 -> signIn());
         emailView = view.findViewById(R.id.email);
         continue_ = view.findViewById(R.id.continue_);
         continue_.setOnClickListener(view12 -> navigation.addFragment(ContentNotesFragment.newInstance(), false));
         signOutBtn = view.findViewById(R.id.sign_out);
-        signOutBtn.setOnClickListener(view14 -> signOut());
+        signOutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signOut();
+            }
+        });
     }
 
     private void vkSignIn() {
@@ -121,9 +123,12 @@ public class StartFragment extends Fragment {
 
     private void signOut() {
         googleSignInClient.signOut()
-                .addOnCompleteListener(task -> {
-                    updateUi("");
-                    enableSign();
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        updateUi("");
+                        enableSign();
+                    }
                 });
     }
 

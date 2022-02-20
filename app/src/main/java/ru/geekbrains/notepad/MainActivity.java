@@ -110,7 +110,6 @@ public class MainActivity extends AppCompatActivity implements GetPublisher {
         return publisher;
     }
 
-
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
